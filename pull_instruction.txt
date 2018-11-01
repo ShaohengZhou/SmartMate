@@ -1,0 +1,20 @@
+In order to be able to "ionic serve" and successfully run the app, do following:
+
+1.download Node.js and npm
+
+2.In your SmartMate repo:
+
+npm install -g ionic cordova  
+
+3.go to SmartMate\node_modules
+either	delete folder @angular\
+or 	type
+ 
+	rm -r SmartMate\node_modules\@angular\
+
+4. in your prompt type:
+
+npm i -D -E @angular/cli
+npm rebuild node-sass
+
+5. now try "ionic serve"
