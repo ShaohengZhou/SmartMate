@@ -1,0 +1,53 @@
+1.git clone https://github.com/ShaohengZhou/SmartMate.git
+
+2.go to https://www.npmjs.com/get-npm
+  click on "Download Node.js and npm", download Node.js and npm
+
+3.git checkout eileen_testing
+3.git checkout -b <your_new_branch_name>
+4.git push --set-upstream origin <your_new_branch_name>
+
+Now you are in your own branch. 
+
+5.(sudo for mac) npm install -g typescript
+6.(sudo for mac) npm install -g ionic cordova
+7.(sudo for mac) npm install -g @aws-amplify/cli@0.1.29
+8.got to directory and delete SmartMate\node_modules\@angular\
+9.(sudo for mac) npm i -D -E @angular/cli
+10.(sudo for mac) npm rebuild node-sass
+
+Now type "ionic serve"
+
+********************************************************
+Here, we are gonna make our own backend by IAM profile *
+To do this we need a IAM profile in our AWS account.   *
+By now we should each have a IAM profile, so we don't  *
+need to worry about that. If you don't have one, you   *
+should run:                                            *
+	amplify configure			       *
+But this needs AWS account, come to Shawn to help you. *
+						       *
+**notice** DO NOT hare your access key ID or secret    *
+           access key                                  *
+********************************************************
+Now we are creating your own backend
+
+11.amplify init
+Select as follows
+	-> <your default editor>  does not matter
+	-> javascript
+	-> ionic
+	-> src                    just click return
+	-> www			  just click return
+	-> npm.cmd run-script build 	     return
+	-> ionic serve			     return
+
+Do you want to use an AWS profile? (Y/n) Y
+	-> <your IAM profile>
+
+12.
+
+
+
+
+
