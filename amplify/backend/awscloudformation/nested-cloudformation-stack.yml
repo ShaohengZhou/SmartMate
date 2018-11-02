@@ -78,41 +78,69 @@
 				}
 			}
 		},
-		"authcognito144e1013": {
+		"authcognitob35e8f6f": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/fancytodos-20181031232937-deployment/amplify-cfn-templates/auth/cognito144e1013-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/martate-20181102014240-deployment/amplify-cfn-templates/auth/cognitob35e8f6f-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "fancytodos_identitypool_46ab1967",
+					"identityPoolName": "cognitob35e8f6f_identitypool_b35e8f6f",
 					"allowUnauthenticatedIdentities": true,
 					"thirdPartyAuth": false,
-					"lambdaLogPolicy": "fancytodos_lambda_log_policy",
-					"openIdLambdaRoleName": "fancytodos_openid_lambda_role",
-					"openIdRolePolicy": "fancytodos_openid_pass_role_policy",
-					"openIdLambdaIAMPolicy": "fancytodos_openid_lambda_iam_policy",
-					"openIdLogPolicy": "fancytodos_openid_lambda_log_policy",
-					"authSelections": "identityPoolOnly",
-					"resourceName": "cognito144e1013",
-					"unAuthRoleName": "fancytodos-20181031232937-unauthRole",
-					"authRoleName": "fancytodos-20181031232937-authRole",
-					"unAuthRoleArn": "arn:aws:iam::453037959938:role/fancytodos-20181031232937-unauthRole",
-					"authRoleArn": "arn:aws:iam::453037959938:role/fancytodos-20181031232937-authRole"
+					"lambdaLogPolicy": "cognitob35e8f6f_lambda_log_policy",
+					"openIdLambdaRoleName": "cognitob35e8f6f_openid_lambda_role",
+					"openIdRolePolicy": "cognitob35e8f6f_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognitob35e8f6f_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognitob35e8f6f_openid_lambda_log_policy",
+					"userPoolName": "cognitob35e8f6f_userpool_b35e8f6f",
+					"autoVerifiedAttributes": "email",
+					"mfaConfiguration": "OFF",
+					"mfaTypes": "SMS Text Message",
+					"roleName": "cognitob35e8f6f_sns-role",
+					"roleExternalId": "cognitob35e8f6f_role_external_id",
+					"policyName": "cognitob35e8f6f-sns-policy",
+					"smsAuthenticationMessage": "Your authentication code is {####}",
+					"smsVerificationMessage": "Your verification code is {####}",
+					"emailVerificationSubject": "Your verification code",
+					"emailVerificationMessage": "Your verification code is {####}",
+					"defaultPasswordPolicy": false,
+					"passwordPolicyMinLength": 8,
+					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
+					"requiredAttributes": "email",
+					"userpoolClientName": "cognitob35e8f6f_app_client",
+					"userpoolClientGenerateSecret": true,
+					"userpoolClientRefreshTokenValidity": 30,
+					"userpoolClientReadAttributes": "email",
+					"mfaLambdaRole": "cognitob35e8f6f_totp_lambda_role",
+					"mfaLambdaLogPolicy": "cognitob35e8f6f_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "cognitob35e8f6f_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "cognitob35e8f6f_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "cognitob35e8f6f_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "cognitob35e8f6f_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "cognitob35e8f6f_userpoolclient_lambda_iam_policy",
+					"userpoolClientSetAttributes": false,
+					"useDefault": "default",
+					"unAuthRoleName": "martate-20181102014240-unauthRole",
+					"authRoleName": "martate-20181102014240-authRole",
+					"unAuthRoleArn": "arn:aws:iam::453037959938:role/martate-20181102014240-unauthRole",
+					"authRoleArn": "arn:aws:iam::453037959938:role/martate-20181102014240-authRole",
+					"resourceName": "cognitob35e8f6f",
+					"authSelections": "identityPoolAndUserPool"
 				}
 			}
 		},
-		"analyticsfancytodos": {
+		"analyticssmartmate": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/fancytodos-20181031232937-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/martate-20181102014240-deployment/amplify-cfn-templates/analytics/pinpoint-cloudformation-template.json",
 				"Parameters": {
-					"appName": "fancytodos",
-					"roleName": "pinpointLambdaRolec7f66146",
-					"cloudWatchPolicyName": "cloudWatchPolicyc7f66146",
-					"pinpointPolicyName": "pinpointPolicyc7f66146",
-					"authPolicyName": "pinpoint_amplify_c7f66146",
-					"unauthPolicyName": "pinpoint_amplify_c7f66146",
-					"authRoleName": "fancytodos-20181031232937-authRole",
-					"unauthRoleName": "fancytodos-20181031232937-unauthRole",
+					"appName": "smartmate",
+					"roleName": "pinpointLambdaRole47bb23a7",
+					"cloudWatchPolicyName": "cloudWatchPolicy47bb23a7",
+					"pinpointPolicyName": "pinpointPolicy47bb23a7",
+					"authPolicyName": "pinpoint_amplify_47bb23a7",
+					"unauthPolicyName": "pinpoint_amplify_47bb23a7",
+					"authRoleName": "martate-20181102014240-authRole",
+					"unauthRoleName": "martate-20181102014240-unauthRole",
 					"IAMPrefix": "453037959938"
 				}
 			}

@@ -1,0 +1,11 @@
+{
+    "appName": "smartmate",
+    "roleName": "pinpointLambdaRole47bb23a7",
+    "cloudWatchPolicyName": "cloudWatchPolicy47bb23a7",
+    "pinpointPolicyName": "pinpointPolicy47bb23a7",
+    "authPolicyName": "pinpoint_amplify_47bb23a7",
+    "unauthPolicyName": "pinpoint_amplify_47bb23a7",
+    "authRoleName": "martate-20181102014240-authRole",
+    "unauthRoleName": "martate-20181102014240-unauthRole",
+    "IAMPrefix": "453037959938"
+}
