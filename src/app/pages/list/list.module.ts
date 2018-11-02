@@ -18,7 +18,7 @@ import { ListItemModal } from './list.item.modal';
     ListItemModal
   ],
   entryComponents: [
-    ListPage,
+    //ListPage,
     ListItemModal
   ],
   providers: []

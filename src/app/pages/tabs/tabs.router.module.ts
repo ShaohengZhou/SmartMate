@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
-
 import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
-import { ListPage } from '../list/list.page';
 import { ContactPage } from '../contact/contact.page';
-import { AuthGuardService } from '../../services/auth-route-guard'
+import { ListPage } from '../list/list.page';
+import { AuthGuardService } from '../../services/auth-route-guard';
 
 const routes: Routes = [
   {
@@ -18,15 +17,15 @@ const routes: Routes = [
         component: HomePage
       },
       {
+        path: 'contact',
+        outlet: 'contact',
+        component: ContactPage
+      },
+      {
         path: 'list',
         outlet: 'list',
         component: ListPage,
         canActivate: [AuthGuardService]
-      },
-      {
-        path: 'contact',
-        outlet: 'contact',
-        component: ContactPage
       }
     ]
   },

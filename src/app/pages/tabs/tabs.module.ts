@@ -11,8 +11,8 @@ import { TabsPage } from './tabs.page';
 import { ContactPageModule } from '../contact/contact.module';
 import { ListModule } from '../list/list.module';
 import { HomePageModule } from '../home/home.module';
+import { AuthGuardService } from '../../services/auth-route-guard';
 
-import { AuthGuardService } from '../../services/auth-route-guard'
 
 @NgModule({
   imports: [
@@ -24,7 +24,7 @@ import { AuthGuardService } from '../../services/auth-route-guard'
     ListModule,
     ContactPageModule
   ],
-  declarations: [TabsPage],
-  providers: [AuthGuardService]
+declarations: [TabsPage],
+providers: [AuthGuardService]
 })
 export class TabsPageModule {}
