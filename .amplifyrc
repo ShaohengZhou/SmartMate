@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "martate-20181113160558-authRole",
+            "UnauthRoleArn": "arn:aws:iam::453037959938:role/martate-20181113160558-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::453037959938:role/martate-20181113160558-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "martate-20181113160558-deployment",
+            "UnauthRoleName": "martate-20181113160558-unauthRole",
+            "StackName": "martate-20181113160558",
+            "StackId": "arn:aws:cloudformation:us-east-1:453037959938:stack/martate-20181113160558/4cc8e020-e790-11e8-91ee-50fae98a24fd"
+        }
+    }
+}

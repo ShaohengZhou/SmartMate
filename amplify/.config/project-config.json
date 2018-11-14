@@ -1,6 +1,6 @@
 {
     "projectName": "SmartMate",
-    "projectPath": "/Users/Xuan/SmartMate",
+    "projectPath": "/Users/jnmgellerman/SmartMate_v2/SmartMate",
     "defaultEditor": "atom",
     "frontendHandler": {
         "javascript": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
