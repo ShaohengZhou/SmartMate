@@ -1,6 +1,6 @@
 <ion-tabs>
-  <ion-tab label="Chores" icon="contacts" href="/tabs/(home:home)">
-    <ion-router-outlet name="home"></ion-router-outlet>
+  <ion-tab label="Group Chores" icon="contacts" href="/tabs/(list:list)">
+    <ion-router-outlet name="list"></ion-router-outlet>
   </ion-tab>
   <ion-tab label="Home" icon="home" href="/tabs/(list:list)">
     <ion-router-outlet name="list"></ion-router-outlet>
@@ -8,5 +8,7 @@
   <ion-tab label="Payment" icon="ios-cash" href="/tabs/(contact:contact)">
     <ion-router-outlet name="contact"></ion-router-outlet>
   </ion-tab>
-  
+  <ion-tab label="Settings" icon="settings" href="/tabs/(home:home)">
+    <ion-router-outlet name="home"></ion-router-outlet>
+  </ion-tab>
 </ion-tabs>
