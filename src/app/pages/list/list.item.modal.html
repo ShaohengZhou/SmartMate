@@ -6,12 +6,16 @@
   <ion-content>
     <ion-list lines="true">
       <ion-item>
-        <ion-label color="primary">ToDo Title </ion-label>
+        <ion-label color="primary">Chore: </ion-label>
         <ion-input placeholder="title" [(ngModel)]="item.title"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary">ToDo Description </ion-label>
+        <ion-label color="primary">Assigned To:</ion-label>
         <ion-input placeholder="description" [(ngModel)]="item.description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Due By: </ion-label>
+        <ion-input placeholder="date" [(ngModel)]="item.date"></ion-input>
       </ion-item>
     </ion-list>
   </ion-content>

@@ -15,7 +15,7 @@ const routes: Routes = [
         path: 'home',
         outlet: 'home',
         component: HomePage
-      },
+     },
       {
         path: 'contact',
         outlet: 'contact',
