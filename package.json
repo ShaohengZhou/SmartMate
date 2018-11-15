@@ -5,8 +5,8 @@
   "homepage": "http://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng serve; ng serve",
+    "build": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng build --prod; ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -26,8 +26,9 @@
     "@ionic-native/status-bar": "5.0.0-beta.21",
     "@ionic/angular": "4.0.0-beta.13",
     "@ionic/pro": "2.0.3",
-    "aws-amplify": "^1.1.8",
-    "aws-amplify-angular": "^2.0.11",
+    "amazon-cognito-auth-js": "^1.2.4",
+    "aws-amplify": "^1.1.9",
+    "aws-amplify-angular": "^2.0.12",
     "core-js": "^2.5.3",
     "rxjs": "6.2.2",
     "zone.js": "^0.8.26"
@@ -37,7 +38,7 @@
     "@angular-devkit/build-angular": "~0.8.5",
     "@angular-devkit/core": "~0.8.5",
     "@angular-devkit/schematics": "~0.8.5",
-    "@angular/cli": "~6.2.5",
+    "@angular/cli": "6.2.7",
     "@angular/compiler": "~6.1.1",
     "@angular/compiler-cli": "~6.1.1",
     "@angular/language-service": "~6.1.1",

@@ -1,0 +1,5 @@
+{
+    "tableName": "Chores2",
+    "partitionKeyName": "userId",
+    "partitionKeyType": "S"
+}

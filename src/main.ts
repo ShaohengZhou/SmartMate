@@ -5,9 +5,9 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import Amplify, { Analytics } from 'aws-amplify';
-import aws_exports from './aws-exports';
+import * as aws_exports from './aws-exports';
 
-Amplify.configure(aws_exports);
+Amplify.configure(aws_exports.default);
 
 if (environment.production) {
   enableProdMode();

@@ -33,9 +33,11 @@ export class ListItemModal implements OnInit {
       newItem: !this.editItem ? this.item : null,
       editItem: this.editItem ? this.item : null
     });
+    console.log("saved");
   };
 
   cancel(){
-    this.modalController.dismiss({itemList: this.itemList})
+    this.modalController.dismiss({itemList: this.itemList});
+    console.log("canceled");
   }
 }
