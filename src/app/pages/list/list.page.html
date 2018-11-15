@@ -1,20 +1,15 @@
-
-    
-    
     <ion-header no-border>
-        
-      
       <ion-toolbar no-border-top color="--ion-color-success-contrast">
-            <ion-button icon-only menuToggle>
+            <ion-button icon-only menuToggle icon-start>
               <ion-icon name="menu"></ion-icon>
             </ion-button>
-            <ion-title center>Welcome {{user.username}}</ion-title>
-            <ion-button (click)="modify(null,null)" float-right  icon-only>
+            
+            <ion-button (click)="modify(null,null)" float-right  icon-end>
                 <ion-icon name="ios-add" ></ion-icon>
-              </ion-button>
-
+            </ion-button>
+            
+            <ion-title class="welcome">Welcome {{user.username}}</ion-title>
       </ion-toolbar>
-
     </ion-header>
     
     
