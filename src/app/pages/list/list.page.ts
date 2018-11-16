@@ -4,10 +4,12 @@ import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from './list.item.modal';
 import {AmplifyService} from 'aws-amplify-angular'
 @Component({
-  selector: 'app-list-page',
+  selector: 'app-contact',
   templateUrl: 'list.page.html',
   styleUrls: ['list.page.scss']
 })
+
+
 export class ListPage implements OnInit {
   amplifyService: AmplifyService;
   modal: any;

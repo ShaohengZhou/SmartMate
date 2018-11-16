@@ -4,7 +4,10 @@ import { TabsPage } from './tabs.page';
 import { HomePage } from '../home/home.page';
 import { ContactPage } from '../contact/contact.page';
 import { ListPage } from '../list/list.page';
+import { NewHomePage } from '../newHome/newHome.page';
 import { AuthGuardService } from '../../services/auth-route-guard';
+
+
 
 const routes: Routes = [
   {
@@ -19,16 +22,24 @@ const routes: Routes = [
       {
         path: 'contact',
         outlet: 'contact',
-        component: ContactPage
+        component: ContactPage,
+        canActivate: [AuthGuardService]
       },
       {
         path: 'list',
         outlet: 'list',
         component: ListPage,
         canActivate: [AuthGuardService]
+      },
+      {
+        path: 'newHome',
+        outlet: 'newHome',
+        component: NewHomePage,
+        canActivate: [AuthGuardService]
       }
     ]
   },
+  
   {
     path: '',
     redirectTo: '/tabs/(home:home)',

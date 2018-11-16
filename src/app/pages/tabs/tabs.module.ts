@@ -11,6 +11,7 @@ import { TabsPage } from './tabs.page';
 import { ContactPageModule } from '../contact/contact.module';
 import { ListModule } from '../list/list.module';
 import { HomePageModule } from '../home/home.module';
+import {NewHomePageModule } from '../newHome/newHome.module';
 import { AuthGuardService } from '../../services/auth-route-guard';
 
 
@@ -22,7 +23,8 @@ import { AuthGuardService } from '../../services/auth-route-guard';
     TabsPageRoutingModule,
     HomePageModule,
     ListModule,
-    ContactPageModule
+    ContactPageModule,
+    NewHomePageModule
   ],
 declarations: [TabsPage],
 providers: [AuthGuardService]
