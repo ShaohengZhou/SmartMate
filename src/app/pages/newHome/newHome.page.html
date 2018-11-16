@@ -66,10 +66,13 @@
 </ion-content> -->
 
 <ion-header no-border>
-    <ion-toolbar no-border-top color="--ion-color-success-contrast">
-          <ion-title *ngIf="user" class="welcome">Welcome {{user.username}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        
+      
+        <ion-toolbar no-border-top color="--ion-color-success-contrast">
+              <ion-title *ngIf="user" center>Welcome {{user.username}}</ion-title>
+        </ion-toolbar>
+      
+      </ion-header>
       
       
       <ion-content padding *ngIf="itemList">
