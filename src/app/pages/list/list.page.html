@@ -8,14 +8,14 @@
                 <ion-icon name="ios-add" ></ion-icon>
             </ion-button>
             
-            <ion-title class="welcome">Welcome {{user.username}}</ion-title>
+            <ion-title *ngIf="user" class="welcome">Welcome {{user.username}}</ion-title>
       </ion-toolbar>
     </ion-header>
     
     
     <ion-content padding *ngIf="itemList">
              
-         <div *ngIf="itemList.items.length > 0; else upChores" >
+         <div *ngIf="itemList.items && itemList.items.length > 0; else upChores" >
             Upcoming Chores:
          </div>  
          

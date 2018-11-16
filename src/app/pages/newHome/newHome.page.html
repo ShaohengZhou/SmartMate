@@ -1,8 +1,8 @@
-        
+<!--         
 <ion-header no-border>
           
         <ion-toolbar no-border-top color="--ion-color-success-contrast">
-              <ion-title center>Welcome {{user.username}}</ion-title>
+              <ion-title *ngIf="user" center>Welcome {{user.username}}</ion-title>
         </ion-toolbar>
   
       </ion-header>
@@ -10,7 +10,7 @@
       
       <ion-content padding *ngIf="itemList">
                
-           <div *ngIf="itemList.items.length > 0; else upChores" >
+           <div *ngIf="itemList.items && itemList.items.length > 0; else upChores" >
                <ion-text text-center>
                     Your Upcoming Chores:
                </ion-text>
@@ -25,7 +25,7 @@
         <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
         <ion-card-content>{{item.description}}</ion-card-content>
         <ion-card-content>{{item.date}}</ion-card-content>
-        <!-- <ion-card-subtitle> -->
+
             <ion-buttons slot="end">
                 <ion-button (click)="delete(i)" class="hover">
                     <ion-icon name="trash" size="small"></ion-icon>Delete</ion-button>
@@ -33,7 +33,78 @@
                     <ion-icon name="checkmark-circle" size="small" [ngClass]="{'complete': item.status=='complete'}"></ion-icon>Mark Complete
                 </ion-button>
               </ion-buttons>
-        <!-- </ion-card-subtitle> -->
+     
       </ion-card>
   </ion-content>
-  
+   -->
+
+   <!-- <ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="user">
+      {{user.username + '\'s list' }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="modify(null, null)">Add Item</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="itemList">
+    <ion-card *ngFor="let item of itemList.items; index as i">
+      <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
+      <ion-card-content>description: {{item.description}} due date:{{item.date}}</ion-card-content>
+   
+          <ion-buttons slot="end">
+              <ion-button (click)="delete(i)">
+                  <ion-icon name="trash" size="small"></ion-icon>Delete</ion-button>
+              <ion-button (click)="complete(i)">
+                  <ion-icon name="checkmark-circle"  size="small" [ngClass]="{'complete': item.status=='complete'}"></ion-icon>Mark Complete
+              </ion-button>
+            </ion-buttons>
+   
+    </ion-card>
+</ion-content> -->
+
+<ion-header no-border>
+        
+      
+        <ion-toolbar no-border-top color="--ion-color-success-contrast">
+              <ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+              </ion-button>
+              
+              <ion-title *ngIf="user" center>Welcome {{user.username}}</ion-title>
+              <ion-button (click)="modify(null,null)" float-right  icon-only>
+                  <ion-icon name="ios-add" ></ion-icon>
+                </ion-button>
+      
+        </ion-toolbar>
+      
+      </ion-header>
+      
+      
+      <ion-content padding *ngIf="itemList">
+               
+           <div *ngIf="itemList.items && itemList.items.length > 0; else upChores" >
+              Upcoming Chores:
+           </div>  
+           
+           <ng-template #upChores>
+              No chores, Press the + to add
+            </ng-template>
+      
+      <ion-card *ngFor="let item of itemList.items; index as i">
+        <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
+        <ion-card-content>{{item.description}}</ion-card-content>
+        <ion-card-content>{{item.date}}</ion-card-content>
+       
+            <ion-buttons slot="end">
+                <ion-button (click)="delete(i)" class="hover">
+                    <ion-icon name="trash" size="small"></ion-icon>Delete</ion-button>
+                <ion-button (click)="complete(i)" class="hover">
+                    <ion-icon name="checkmark-circle" size="small" [ngClass]="{'complete': item.status=='complete'}"></ion-icon>Mark Complete
+                </ion-button>
+              </ion-buttons>
+        
+      </ion-card>
+      </ion-content>
