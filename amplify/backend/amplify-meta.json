@@ -19,7 +19,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/auth/cognito0288b343-cloudformation-template.yml",
 				"logicalId": "authcognito0288b343"
 			},
-			"lastPushTimeStamp": "2018-11-13T22:50:01.042Z",
+			"lastPushTimeStamp": "2018-11-17T03:14:35.274Z",
 			"output": {
 				"AppClientSecret": "g4gsoibomeovie1p7rfpv01fr2mjqcmcmle8pg38lpkf0t65el5",
 				"UserPoolId": "us-east-1_APfLACHhT",
@@ -40,7 +40,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/storage/dynamo9f4d6d78-cloudformation-template.json",
 				"logicalId": "storagedynamo9f4d6d78"
 			},
-			"lastPushTimeStamp": "2018-11-13T22:50:01.042Z",
+			"lastPushTimeStamp": "2018-11-17T03:14:35.275Z",
 			"output": {
 				"PartitionKeyName": "userId",
 				"Region": "us-east-1",
@@ -64,7 +64,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/function/ItemsLambda-cloudformation-template.json",
 				"logicalId": "functionItemsLambda"
 			},
-			"lastPushTimeStamp": "2018-11-13T22:50:01.051Z",
+			"lastPushTimeStamp": "2018-11-17T03:14:35.281Z",
 			"output": {
 				"Region": "us-east-1",
 				"Arn": "arn:aws:lambda:us-east-1:453037959938:function:ItemsFunction",
@@ -91,12 +91,33 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/api/apia46a8997-cloudformation-template.json",
 				"logicalId": "apiapia46a8997"
 			},
-			"lastPushTimeStamp": "2018-11-13T22:50:01.051Z",
+			"lastPushTimeStamp": "2018-11-17T03:14:35.281Z",
 			"output": {
 				"ApiName": "apia46a8997",
 				"RootUrl": "https://n68ckp7pjc.execute-api.us-east-1.amazonaws.com/Prod"
 			},
 			"lastPushDirHash": "cXgQlg44PAUtbWNvdFWpPmCOBrc="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-11-17T03:14:35.283Z",
+			"output": {
+				"CloudFrontSecureURL": "https://de2ocq7qfzutq.cloudfront.net",
+				"S3BucketSecureURL": "https://martate-20181116205609--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://martate-20181116205609--hostingbucket.s3-website-us-east-1.amazonaws.com",
+				"CloudFrontDistributionID": "E32WD4JTAXRPHT",
+				"Region": "us-east-1",
+				"HostingBucketName": "martate-20181116205609--hostingbucket",
+				"CloudFrontDomainName": "de2ocq7qfzutq.cloudfront.net"
+			},
+			"lastPushDirHash": "uy5U9AxDo5/Kr/x6AfGA28aCCOg="
 		}
 	}
 }

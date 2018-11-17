@@ -4,11 +4,16 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "scripts": {
+    "ng": "ng",
+    "start": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng serve; ng serve",
+    "build": "[ -f src/aws-exports.js ] && mv src/aws-exports.js src/aws-exports.ts || ng build --prod; ng build --prod",
     "test1": "ng test",
     "e2e": "ng e2e",
     "test": "karma start ./test-config/karma.conf.js",
     "test-ci": "karma start ./test-config/karma.conf.js --single-run",
-    "test-coverage": "karma start ./test-config/karma.conf.js --coverage"
+    "test-coverage": "karma start ./test-config/karma.conf.js --coverage",
+    "lint": "ng lint"
+
   },
   "private": true,
   "dependencies": {
