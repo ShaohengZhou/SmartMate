@@ -1,9 +1,12 @@
 SmartMate is a central mobile application to take care of all things roomates wise, from billing splitting to assign chores, making peaceful roommate living more attainable than ever.
 
 Instruction of setting up:
-1. git clone the whole repository
-
-2. git checkout to this branch
+1. clone the whole repository
+   git clone https://github.com/ShaohengZhou/SmartMate.git
+   
+2. checkout to this branch
+   cd SmartMate
+   git checkout iteration_two
 
 3.go to https://www.npmjs.com/get-npm
   click on "Download Node.js and npm", download Node.js and npm
