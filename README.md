@@ -1,21 +1,24 @@
 SmartMate is a central mobile application to take care of all things roomates wise, from billing splitting to assign chores, making peaceful roommate living more attainable than ever.
 
 Instruction of setting up:
+1. git clone the whole repository
 
-1.go to https://www.npmjs.com/get-npm
+2. git checkout to this branch
+
+3.go to https://www.npmjs.com/get-npm
   click on "Download Node.js and npm", download Node.js and npm
   
-2.(sudo for mac) npm install -g typescript
+4.(sudo for mac) npm install -g typescript
 
-3.(sudo for mac) npm install -g ionic cordova
+5.(sudo for mac) npm install -g ionic cordova
 
-4.(sudo for mac) npm install -g @aws-amplify/cli@0.1.29
+6.(sudo for mac) npm install -g @aws-amplify/cli@0.1.29
 
-5.got to directory and delete SmartMate\node_modules\@angular\
+7.got to directory and delete SmartMate\node_modules\@angular\
 
-6.(sudo for mac) npm i -D -E @angular/cli
+8.(sudo for mac) npm i -D -E @angular/cli
 
-7.(sudo for mac) npm rebuild node-sass
+9.(sudo for mac) npm rebuild node-sass
 
 In the SmartMate repo
 Now type "ionic serve"
