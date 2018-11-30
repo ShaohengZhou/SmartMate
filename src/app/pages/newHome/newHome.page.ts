@@ -2,16 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, Events } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from '../list/list.item.modal';
-import {AmplifyService} from 'aws-amplify-angular'
+import { AmplifyService } from 'aws-amplify-angular';
+import { AlertController } from '@ionic/angular';
 @Component({
     selector: 'newHome-page',
     templateUrl: 'newHome.page.html',
     styleUrls: ['newHome.page.scss']
 
 })
-
-
-
 
 
 export class NewHomePage implements OnInit {
@@ -25,7 +23,8 @@ export class NewHomePage implements OnInit {
     constructor(
       public modalController: ModalController,
       amplify: AmplifyService,
-      events: Events
+      events: Events,
+      private alertCtrl: AlertController
   
     ) {
       this.amplifyService = amplify;
@@ -86,6 +85,31 @@ export class NewHomePage implements OnInit {
     delete(i){
       this.itemList.items.splice(i, 1);
       this.save(this.itemList);
+    }
+
+    async showConfirmAlert() {
+      console.log("check");
+      let alert = await this.alertCtrl.create({
+          header: 'Are you sure?',
+          message: 'Once a task is deleted, it cannot be recovered',
+          buttons: [
+              {
+                  text: 'No',
+                  role: 'cancel',
+                  handler: () => {
+                      console.log('Cancel clicked');
+                  }
+              },
+              {
+                  text: 'Yes',
+                  handler: (i) => {
+                     this.itemList.items.splice(i,1);
+                     this.save(this.itemList);
+                  }
+              }
+          ]
+      })
+      alert.present()
     }
   
     complete(i){
