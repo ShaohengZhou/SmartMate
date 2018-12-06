@@ -15,7 +15,8 @@
       </ion-item>
       <ion-item>
         <ion-label color="primary">Due By: </ion-label>
-        <ion-input placeholder="date" [(ngModel)]="item.date"></ion-input>
+        <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="item.date"></ion-datetime>
+        <!-- <ion-input placeholder="date" [(ngModel)]="item.date"></ion-input> -->
       </ion-item>
     </ion-list>
   </ion-content>

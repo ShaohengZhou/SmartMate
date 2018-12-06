@@ -113,8 +113,14 @@ export class ListPage implements OnInit {
   }
 
   complete(i){
-    this.itemList.items[i].status = "complete";
-    this.save(this.itemList);
+    if (this.itemList.items[i].status == "new") {
+      this.itemList.items[i].status = "complete";
+      this.save(this.itemList);
+    } else {
+      this.itemList.items[i].status = "new";
+      this.save(this.itemList);
+    }
+    
   }
 
   save(list){
