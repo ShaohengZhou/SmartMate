@@ -21,9 +21,16 @@
         <!-- <ion-input placeholder="date" [(ngModel)]="item.date"></ion-input> -->
       </ion-item>
     </ion-list>
-    <ion-button class="save-btn" (click)="save()" >Save</ion-button>
-
-    <ion-button class="dismiss-btn" (click)="cancel()" float-right >Cancel</ion-button>
+    
+    <div *ngIf = "item.title == null || item.description == null">
+      <ion-button class="save-btn"  (click)="showMissingAlert()" float-left>Save</ion-button>
+    </div>
+    <div *ngIf = "item.title != null && item.description != null">
+        <ion-button class="save-btn"  (click)="save()" float-left>Save</ion-button>
+    </div>
+    
+    <div><ion-button class="dismiss-btn" (click)="cancel()" float-right >Cancel</ion-button></div>
+    
   </ion-content>
 
   <!-- <ion-content margin-bottom>
