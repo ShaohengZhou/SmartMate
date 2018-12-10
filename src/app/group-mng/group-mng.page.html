@@ -1,9 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>GroupMNG</ion-title>
+    <ion-title>Group Management</ion-title>
+    <ion-button float-left href = "tabs/(list:list)"> 
+      <ion-icon name = "arrow-dropleft" > </ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf = "hasGroup">
+      <h3>Swipe a user to delete</h3>
+      <ion-list>
+            <ion-item-sliding *ngFor= "let user of users">
+              <ion-item>
+              {{user.title}}
+              </ion-item>
+              <ion-item-options>
+                <button (click)="removeUser(user)"> Delete</button>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+     
+     <div text-center>
+        <ion-button size = "large" href="/inviteMember">
+          Add a group member
+        </ion-button>
+        <ion-button size = "large">
+            Delete group
+        </ion-button>
+      </div>
+  </div>
 
+
+  <div text-center *ngIf = "!hasGroup">
+    <ion-row style="height: 100px"></ion-row>
+    <ion-button size="large" round="isRound" href="/createGroup">Create Group</ion-button>
+    <ion-row style="height: 20px"></ion-row>
+    <ion-button size="large" round="isRound" href="/joinGroup">Join a Group</ion-button>
+    <ion-row style="height: 20px"></ion-row>
+    <div>
+    You are not in a group right now
+    </div>
+     Create your group dumb ass! :)
+  </div>
 </ion-content>

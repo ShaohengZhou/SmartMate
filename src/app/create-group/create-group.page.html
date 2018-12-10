@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-title>Create Group</ion-title>
+    <ion-button float-left href = "/GroupMNG"> 
+      <ion-icon name = "arrow-dropleft" > </ion-icon>
+    </ion-button>
+</ion-header>
+
+<ion-content padding>
+    <ion-row style="height: 40px"></ion-row>
+    <div text-center>
+        <ion-label class = "labelSize" color="primary">Name of Your Group</ion-label>
+    </div>
+    <div text-center>
+        <ion-input placeholder="Text Input"></ion-input>
+    </div>
+    <ion-row style="height: 100px"></ion-row>
+    <ion-row style="height: 150px"></ion-row>
+
+    <div text-center>
+      <ion-button size = "large" (click) = "createGroup()" href = "/tabs/(list:list)">
+        Create Group
+      </ion-button>
+    </div> 
+
+</ion-content>
