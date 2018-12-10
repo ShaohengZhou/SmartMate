@@ -1,6 +1,8 @@
 {
   "name": "fancy-todos",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "pro_id": "b7d82200"
 }
