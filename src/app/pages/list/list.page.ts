@@ -79,14 +79,40 @@ export class ListPage implements OnInit {
   }
 
 
-  delete(i){
-    this.itemList.items.splice(i, 1);
-    this.save(this.itemList);
+  async showConfirmAlert() {
+    console.log("check");
+    let alert = await this.alertCtrl.create({
+        header: 'Are you sure?',
+        message: 'Once a task is deleted, it cannot be recovered',
+        buttons: [
+            {
+                text: 'No',
+                role: 'cancel',
+                handler: () => {
+                    console.log('Cancel clicked');
+                }
+            },
+            {
+                text: 'Yes',
+                handler: (i) => {
+                   this.itemList.items.splice(i,1);
+                   this.save(this.itemList);
+                }
+            }
+        ]
+    })
+    alert.present()
   }
 
   complete(i){
-    this.itemList.items[i].status = "complete";
-    this.save(this.itemList);
+    if (this.itemList.items[i].status == "new") {
+      this.itemList.items[i].status = "complete";
+      this.save(this.itemList);
+    } else {
+      this.itemList.items[i].status = "new";
+      this.save(this.itemList);
+    }
+    
   }
 
   save(list){
