@@ -2,7 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, Events } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from './list.item.modal';
-import {AmplifyService} from 'aws-amplify-angular'
+import {AmplifyService} from 'aws-amplify-angular';
+import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-contact',
   templateUrl: 'list.page.html',
@@ -21,7 +23,8 @@ export class ListPage implements OnInit {
   constructor(
     public modalController: ModalController,
     amplify: AmplifyService,
-    events: Events
+    events: Events,
+    private alertCtrl: AlertController
 
   ) {
     this.amplifyService = amplify;
