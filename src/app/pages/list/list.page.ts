@@ -20,6 +20,7 @@ export class ListPage implements OnInit {
   itemList: ToDoList|any;
   signedIn: boolean;
   hasGroup: boolean
+  groupItemList: ToDoList|any;
 
   constructor(
     public modalController: ModalController,
@@ -48,7 +49,7 @@ export class ListPage implements OnInit {
   async modify(item, i) {
     console.log("wawada");
     let props = {
-      itemList: this.itemList,
+      itemList: this.groupItemList,
       /*
         We pass in an item paramenter only when the user clicks on an existing item
         and therefore populate an editItem value so that our modal knows this is an edit operation.
@@ -83,20 +84,20 @@ export class ListPage implements OnInit {
 
 
   delete(i){
-    this.itemList.items.splice(i, 1);
-    this.save(this.itemList);
+    this.groupItemList.items.splice(i, 1);
+    this.save(this.groupItemList);
   }
 
   complete(i){
-    this.itemList.items[i].status = "complete";
-    this.save(this.itemList);
+    this.groupItemList.items[i].status = "complete";
+    this.save(this.groupItemList);
   }
 
   save(list){
     // Use AWS Amplify to save the list...
     this.amplifyService.api().post('apia46a8997', '/items', {body: list}).then((i) => {
       // ... and to get the list after you save it.
-      this.getItems()
+      this.getGroupItems()
     })
     .catch((err) => {
       console.log(`Error saving list: ${err}`)
@@ -106,11 +107,10 @@ export class ListPage implements OnInit {
   getItems(){
     if (this.user){
       // Use AWS Amplify to get the list
-      length = 0;
       this.amplifyService.api().get('apia46a8997', `/items/${this.user.id}`, {}).then((res) => {
         if (res && res.length > 0){
           this.itemList = res[0];
-          length = res.length;
+          this.getGroupItems();
           console.log(res[0]);
         } else {
           //this.itemList = new ToDoList({userId: this.user.id, items: [], groupId: "1234"});
@@ -122,6 +122,26 @@ export class ListPage implements OnInit {
       })
     } else {
       console.log('Cannot get items: no active user')
+    }
+  }
+
+  getGroupItems(){
+    if (this.user){
+      // Use AWS Amplify to get the list
+      this.amplifyService.api().get('apia46a8997', `/items/${this.itemList.owner}`, {}).then((res) => {
+        if (res && res.length > 0){
+          this.groupItemList = res[0];
+        } else {
+          //this.itemList = new ToDoList({userId: this.user.id, items: [], groupId: "1234"});
+          console.log("user does not have item in DB");
+          return 0;
+        }
+      }).catch((err) => {
+        console.log(`Error getting list: ${err}`)
+      })
+    } else {
+      console.log('Cannot get items: no active user')
+      return -1;
     }
   }
 }

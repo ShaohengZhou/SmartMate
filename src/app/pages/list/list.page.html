@@ -12,9 +12,9 @@
     </ion-header>
     
     
-    <ion-content padding *ngIf="itemList">
+    <ion-content padding *ngIf="groupItemList">
              
-         <div *ngIf="itemList.items && itemList.items.length > 0; else upChores" >
+         <div *ngIf="groupItemList.items && groupItemList.items.length > 0; else upChores" >
             Upcoming Chores:
          </div>  
          
@@ -22,7 +22,7 @@
             No chores, Press the + to add
           </ng-template>
 
-    <ion-card *ngFor="let item of itemList.items; index as i">
+    <ion-card *ngFor="let item of groupItemList.items; index as i">
       <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
       <ion-card-content>{{item.description}}</ion-card-content>
       <ion-card-content>{{item.date}}</ion-card-content>

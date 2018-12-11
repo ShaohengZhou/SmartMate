@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController, Events } from '@ionic/angular';
+import { ModalController, Events, AlertController } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../classes/item.class';
 import { ListItemModal } from '../pages/list/list.item.modal';
 import {AmplifyService} from 'aws-amplify-angular'
@@ -24,6 +24,7 @@ export class JoinGroupPage implements OnInit {
 
   constructor(
     public modalController: ModalController,
+    public alertCtrl: AlertController,
     amplify: AmplifyService,
     events: Events
   ) {
@@ -43,11 +44,9 @@ export class JoinGroupPage implements OnInit {
  }
 
   joinGroup(){
-    console.log("Joined group!");
     var ownerHead = new String("us-east-1:");
     this.itemList = new ToDoList({userId: this.user.id, items: [], assignees:[]
                                   , owner: ownerHead.concat(this.owner), myName: this.myName});
-    this.save(this.itemList);
     this.updateGroupItems();
   }
 
@@ -60,6 +59,15 @@ export class JoinGroupPage implements OnInit {
     .catch((err) => {
       console.log(`Error saving list: ${err}`)
     })
+  }
+
+  async doAlert(){
+    let alert = await this.alertCtrl.create({
+      header: 'Group Not Found',
+      message: 'Make sure you have the correct group code.',
+      buttons: [{text: 'Dismiss'}]
+    });
+    alert.present();
   }
 
   getItems(){
@@ -92,10 +100,12 @@ export class JoinGroupPage implements OnInit {
           this.groupItemList = res[0];
           this.temp = this.groupItemList.assignees;
           this.groupItemList.assignees = this.temp.concat(this.myName);
+          this.save(this.itemList);
           this.save(this.groupItemList);
           console.log(res[0]);
         } else {
           //this.itemList = new ToDoList({userId: this.user.id, items: [], groupId: "1234"});
+          this.doAlert();
           console.log("user does not have item in DB");
           return 0;
         }

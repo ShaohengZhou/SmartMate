@@ -33,6 +33,7 @@ export class GroupMNGPage implements OnInit {
     })
     this.hasGroup = true;
   }
+  
 
   async ngOnInit() {
      console.log("init");
