@@ -1,20 +1,20 @@
 {
     "projectName": "SmartMate",
-    "projectPath": "/Users/jnmgellerman/SmartMate_v2/SmartMate",
-    "defaultEditor": "atom",
+    "projectPath": "C:\\Users\\Shawn Zhou\\Desktop\\semester 5\\CS 506\\Repository\\SmartMate",
+    "defaultEditor": "code",
     "frontendHandler": {
-        "javascript": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+        "javascript": "C:\\Users\\Shawn Zhou\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-frontend-javascript"
     },
     "javascript": {
         "framework": "ionic",
         "config": {
             "SourceDir": "src",
             "DistributionDir": "www",
-            "BuildCommand": "npm run-script build",
+            "BuildCommand": "npm.cmd run-script build",
             "StartCommand": "ionic serve"
         }
     },
     "providers": {
-        "awscloudformation": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+        "awscloudformation": "C:\\Users\\Shawn Zhou\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-provider-awscloudformation"
     }
 }

@@ -3,6 +3,8 @@ import { ModalController, Events } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from './list.item.modal';
 import {AmplifyService} from 'aws-amplify-angular'
+
+
 @Component({
   selector: 'app-contact',
   templateUrl: 'list.page.html',
@@ -17,6 +19,7 @@ export class ListPage implements OnInit {
   user: any;
   itemList: ToDoList|any;
   signedIn: boolean;
+  hasGroup: boolean
 
   constructor(
     public modalController: ModalController,
@@ -103,11 +106,15 @@ export class ListPage implements OnInit {
   getItems(){
     if (this.user){
       // Use AWS Amplify to get the list
+      length = 0;
       this.amplifyService.api().get('apia46a8997', `/items/${this.user.id}`, {}).then((res) => {
         if (res && res.length > 0){
           this.itemList = res[0];
+          length = res.length;
+          console.log(res[0]);
         } else {
-          this.itemList = new ToDoList({userId: this.user.id, items: []});
+          //this.itemList = new ToDoList({userId: this.user.id, items: [], groupId: "1234"});
+          console.log("user does not have item in DB");
         }
       })
       .catch((err) => {
@@ -117,5 +124,4 @@ export class ListPage implements OnInit {
       console.log('Cannot get items: no active user')
     }
   }
-
 }

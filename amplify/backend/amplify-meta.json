@@ -1,86 +1,97 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "martate-20181113160558-authRole",
-			"UnauthRoleArn": "arn:aws:iam::453037959938:role/martate-20181113160558-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::453037959938:role/martate-20181113160558-authRole",
+			"AuthRoleName": "martate-20181210172920-authRole",
+			"UnauthRoleArn": "arn:aws:iam::453037959938:role/martate-20181210172920-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::453037959938:role/martate-20181210172920-authRole",
 			"Region": "us-east-1",
-			"DeploymentBucketName": "martate-20181113160558-deployment",
-			"UnauthRoleName": "martate-20181113160558-unauthRole",
-			"StackName": "martate-20181113160558",
-			"StackId": "arn:aws:cloudformation:us-east-1:453037959938:stack/martate-20181113160558/4cc8e020-e790-11e8-91ee-50fae98a24fd"
+			"DeploymentBucketName": "martate-20181210172920-deployment",
+			"UnauthRoleName": "martate-20181210172920-unauthRole",
+			"StackName": "martate-20181210172920",
+			"StackId": "arn:aws:cloudformation:us-east-1:453037959938:stack/martate-20181210172920/6bc2fd00-fcd3-11e8-8724-500c524058f2"
 		}
 	},
 	"auth": {
-		"cognito0288b343": {
+		"cognito7e15e0f8": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/auth/cognito0288b343-cloudformation-template.yml",
-				"logicalId": "authcognito0288b343"
+				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/auth/cognito7e15e0f8-cloudformation-template.yml",
+				"logicalId": "authcognito7e15e0f8"
 			},
-			"lastPushTimeStamp": "2018-11-17T03:14:35.274Z",
+			"lastPushTimeStamp": "2018-12-10T23:35:58.900Z",
 			"output": {
-				"AppClientSecret": "g4gsoibomeovie1p7rfpv01fr2mjqcmcmle8pg38lpkf0t65el5",
-				"UserPoolId": "us-east-1_APfLACHhT",
-				"AppClientIDWeb": "7to0bm5863j3clskcfnno8jl47",
-				"AppClientID": "55c664p8r10k8ivp7lhcl6t4tc",
-				"IdentityPoolId": "us-east-1:835e5b34-4bf4-4cca-8211-2ff032831ec8",
-				"IdentityPoolName": "cognito0288b343_identitypool_0288b343",
-				"UserPoolName": "cognito0288b343_userpool_0288b343"
+				"AppClientSecret": "1i2kkmpcgch2ujrvf34cssu35qvi25mvp1g0sdr6mup7qvlogf7",
+				"UserPoolId": "us-east-1_L1YfoDb3z",
+				"AppClientIDWeb": "5cmpg1ra6r7c6a3e2mpe94om0v",
+				"AppClientID": "1cc2oidql49e3kd946esjgja8e",
+				"IdentityPoolId": "us-east-1:f545917d-dcfc-4a17-99ad-c4165fcbc052",
+				"IdentityPoolName": "cognito7e15e0f8_identitypool_7e15e0f8",
+				"UserPoolName": "cognito7e15e0f8_userpool_7e15e0f8"
 			},
-			"lastPushDirHash": "xwxuxpF4i5ekuUaJKiAtX1YWHxk="
+			"lastPushDirHash": "vTQcdMVlyl0HAsVwGN+gU4qHLHs="
 		}
 	},
 	"storage": {
-		"dynamo9f4d6d78": {
+		"ShawnDB": {
 			"service": "DynamoDB",
 			"providerPlugin": "awscloudformation",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/storage/dynamo9f4d6d78-cloudformation-template.json",
-				"logicalId": "storagedynamo9f4d6d78"
+				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/storage/ShawnDB-cloudformation-template.json",
+				"logicalId": "storageShawnDB"
 			},
-			"lastPushTimeStamp": "2018-11-17T03:14:35.275Z",
+			"lastPushTimeStamp": "2018-12-10T23:35:58.900Z",
 			"output": {
-				"PartitionKeyName": "userId",
+				"PartitionKeyName": "groupId",
+				"SortKeyName": "userId",
+				"SortKeyType": "S",
 				"Region": "us-east-1",
-				"Arn": "arn:aws:dynamodb:us-east-1:453037959938:table/Chores2",
-				"PartitionKeyType": "S",
-				"Name": "Chores2"
+				"Arn": "arn:aws:dynamodb:us-east-1:453037959938:table/ShawnTable",
+				"PartitionKeyType": "N",
+				"Name": "ShawnTable"
 			},
-			"lastPushDirHash": "YMzStI9jhalpzM9BPvtVlo0Jd74="
+			"lastPushDirHash": "wWNmyzY4t+TIBQegw3dusThhT3I="
 		}
 	},
 	"function": {
-		"ItemsLambda": {
+		"smartmatec4d27624": {
 			"service": "Lambda",
 			"providerPlugin": "awscloudformation",
 			"build": true,
-			"dependsOn": [],
-			"lastBuildTimeStamp": "2018-11-13T22:48:25.812Z",
-			"lastPackageTimeStamp": "2018-11-13T22:48:27.979Z",
-			"distZipFilename": "ItemsLambda-1542149305-latest-build.zip",
+			"dependsOn": [
+				{
+					"category": "storage",
+					"resourceName": "ShawnDB",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"lastBuildTimeStamp": "2018-12-10T23:33:20.432Z",
+			"lastPackageTimeStamp": "2018-12-10T23:33:25.564Z",
+			"distZipFilename": "smartmatec4d27624-1544484800-latest-build.zip",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/function/ItemsLambda-cloudformation-template.json",
-				"logicalId": "functionItemsLambda"
+				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/function/smartmatec4d27624-cloudformation-template.json",
+				"logicalId": "functionsmartmatec4d27624"
 			},
-			"lastPushTimeStamp": "2018-11-17T03:14:35.281Z",
+			"lastPushTimeStamp": "2018-12-10T23:35:58.900Z",
 			"output": {
 				"Region": "us-east-1",
-				"Arn": "arn:aws:lambda:us-east-1:453037959938:function:ItemsFunction",
-				"Name": "ItemsFunction"
+				"Arn": "arn:aws:lambda:us-east-1:453037959938:function:smartmatec4d27624",
+				"Name": "smartmatec4d27624"
 			},
-			"lastPushDirHash": "UxR8P9pe4+JIHNEfzmKm837BUGo="
+			"lastPushDirHash": "cSZ6ZC5f/EcIPEt2iq/hUReX+qw="
 		}
 	},
 	"api": {
-		"apia46a8997": {
+		"apie2d281e1": {
 			"service": "API Gateway",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "ItemsLambda",
+					"resourceName": "smartmatec4d27624",
 					"attributes": [
 						"Name",
 						"Arn"
@@ -88,36 +99,15 @@
 				}
 			],
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/api/apia46a8997-cloudformation-template.json",
-				"logicalId": "apiapia46a8997"
+				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/api/apie2d281e1-cloudformation-template.json",
+				"logicalId": "apiapie2d281e1"
 			},
-			"lastPushTimeStamp": "2018-11-17T03:14:35.281Z",
+			"lastPushTimeStamp": "2018-12-10T23:35:58.900Z",
 			"output": {
-				"ApiName": "apia46a8997",
-				"RootUrl": "https://n68ckp7pjc.execute-api.us-east-1.amazonaws.com/Prod"
+				"ApiName": "apie2d281e1",
+				"RootUrl": "https://uf95okuhoa.execute-api.us-east-1.amazonaws.com/Prod"
 			},
-			"lastPushDirHash": "cXgQlg44PAUtbWNvdFWpPmCOBrc="
-		}
-	},
-	"hosting": {
-		"S3AndCloudFront": {
-			"service": "S3AndCloudFront",
-			"providerPlugin": "awscloudformation",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/hosting/template.json",
-				"logicalId": "hostingS3AndCloudFront"
-			},
-			"lastPushTimeStamp": "2018-11-17T03:14:35.283Z",
-			"output": {
-				"CloudFrontSecureURL": "https://de2ocq7qfzutq.cloudfront.net",
-				"S3BucketSecureURL": "https://martate-20181116205609--hostingbucket.s3.amazonaws.com",
-				"WebsiteURL": "http://martate-20181116205609--hostingbucket.s3-website-us-east-1.amazonaws.com",
-				"CloudFrontDistributionID": "E32WD4JTAXRPHT",
-				"Region": "us-east-1",
-				"HostingBucketName": "martate-20181116205609--hostingbucket",
-				"CloudFrontDomainName": "de2ocq7qfzutq.cloudfront.net"
-			},
-			"lastPushDirHash": "uy5U9AxDo5/Kr/x6AfGA28aCCOg="
+			"lastPushDirHash": "2zSJrproP30OytPUyiUz+uslf9s="
 		}
 	}
 }

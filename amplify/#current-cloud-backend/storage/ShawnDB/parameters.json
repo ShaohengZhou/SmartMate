@@ -1,0 +1,7 @@
+{
+    "tableName": "ShawnTable",
+    "partitionKeyName": "groupId",
+    "partitionKeyType": "N",
+    "sortKeyName": "userId",
+    "sortKeyType": "S"
+}

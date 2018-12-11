@@ -2,12 +2,18 @@ import { v4 as uuid } from 'uuid';
 
 export class ToDoList {
  userId: any;
- items: Array<ToDoItem>
+ items: Array<ToDoItem>;
+ owner: string;
+ assignees: Array<string>;
+ myName: string;
 
  constructor(params){
    this.items = params.items || [];
    this.userId = params.userId;
- }
+   this.assignees = params.assignees || [];
+   this.myName = params.myName;
+   this.owner = params.owner;
+  }
 }
 
 export class ToDoItem {
@@ -16,6 +22,8 @@ export class ToDoItem {
  description: string;
  status: any;
  date: string;
+ assignee: string;
+
 
  constructor(params){
    this.id = uuid();
@@ -23,5 +31,6 @@ export class ToDoItem {
    this.description = params.description;
    this.status = 'new';
    this.date = params.date;
+   this.assignee = params.assignee;
  }
 }

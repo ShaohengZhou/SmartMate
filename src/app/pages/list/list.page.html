@@ -7,7 +7,6 @@
             <ion-button (click)="modify(null,null)" float-right  icon-end>
                 <ion-icon name="ios-add" ></ion-icon>
             </ion-button>
-            
             <ion-title *ngIf="user" class="welcome">Welcome {{user.username}}</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -27,6 +26,7 @@
       <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
       <ion-card-content>{{item.description}}</ion-card-content>
       <ion-card-content>{{item.date}}</ion-card-content>
+
       <!-- <ion-card-subtitle> -->
           <ion-buttons slot="end">
               <ion-button (click)="delete(i)" class="hover">

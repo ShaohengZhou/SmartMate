@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "smartmate99fef53c",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "api8c874e91",
+    "apiName": "smartmate8c874e91",
+    "functionArns": [
+        {
+            "lambdaFunction": "smartmate99fef53c"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "martate-20181209211845-authRole",
+        "unAuthRoleName": "martate-20181209211845-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "smartmate99fef53c",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

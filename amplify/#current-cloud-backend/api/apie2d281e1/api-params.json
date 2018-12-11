@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "smartmatec4d27624",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "apie2d281e1",
+    "apiName": "smartmatee2d281e1",
+    "functionArns": [
+        {
+            "lambdaFunction": "smartmatec4d27624"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "martate-20181210172920-authRole",
+        "unAuthRoleName": "martate-20181210172920-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "smartmatec4d27624",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

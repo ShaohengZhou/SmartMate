@@ -1,0 +1,5 @@
+{
+    "tableName": "dynamo7a7d8546",
+    "partitionKeyName": "userID",
+    "partitionKeyType": "S"
+}

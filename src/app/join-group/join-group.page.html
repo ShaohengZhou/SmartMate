@@ -13,9 +13,15 @@
         <ion-label class = "labelSize" color="primary">Group Code</ion-label>
     </div>
     <div text-center>
-        <ion-input placeholder="Enter the group code here"></ion-input>
+        <ion-input placeholder="Enter the group code here" [(ngModel)]="owner"></ion-input>
     </div>
-    <ion-row style="height: 100px"></ion-row>
+    <div text-center>
+      <ion-label class = "labelSize" color="primary">Tell Us Your Name</ion-label>
+    </div>
+    <div text-center>
+      <ion-input placeholder="Enter the group code here" [(ngModel)]="myName"></ion-input>
+    </div>
+    <ion-row style="height: 60px"></ion-row>
     <ion-row style="height: 150px"></ion-row>
 
     <div text-center>

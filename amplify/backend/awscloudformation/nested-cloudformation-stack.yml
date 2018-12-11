@@ -78,26 +78,26 @@
 				}
 			}
 		},
-		"authcognito0288b343": {
+		"authcognito7e15e0f8": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/auth/cognito0288b343-cloudformation-template.yml",
+				"TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/auth/cognito7e15e0f8-cloudformation-template.yml",
 				"Parameters": {
-					"identityPoolName": "cognito0288b343_identitypool_0288b343",
+					"identityPoolName": "cognito7e15e0f8_identitypool_7e15e0f8",
 					"allowUnauthenticatedIdentities": false,
 					"thirdPartyAuth": false,
-					"lambdaLogPolicy": "cognito0288b343_lambda_log_policy",
-					"openIdLambdaRoleName": "cognito0288b343_openid_lambda_role",
-					"openIdRolePolicy": "cognito0288b343_openid_pass_role_policy",
-					"openIdLambdaIAMPolicy": "cognito0288b343_openid_lambda_iam_policy",
-					"openIdLogPolicy": "cognito0288b343_openid_lambda_log_policy",
-					"userPoolName": "cognito0288b343_userpool_0288b343",
+					"lambdaLogPolicy": "cognito7e15e0f8_lambda_log_policy",
+					"openIdLambdaRoleName": "cognito7e15e0f8_openid_lambda_role",
+					"openIdRolePolicy": "cognito7e15e0f8_openid_pass_role_policy",
+					"openIdLambdaIAMPolicy": "cognito7e15e0f8_openid_lambda_iam_policy",
+					"openIdLogPolicy": "cognito7e15e0f8_openid_lambda_log_policy",
+					"userPoolName": "cognito7e15e0f8_userpool_7e15e0f8",
 					"autoVerifiedAttributes": "email",
 					"mfaConfiguration": "OFF",
 					"mfaTypes": "SMS Text Message",
-					"roleName": "cognito0288b343_sns-role",
-					"roleExternalId": "cognito0288b343_role_external_id",
-					"policyName": "cognito0288b343-sns-policy",
+					"roleName": "cognito7e15e0f8_sns-role",
+					"roleExternalId": "cognito7e15e0f8_role_external_id",
+					"policyName": "cognito7e15e0f8-sns-policy",
 					"smsAuthenticationMessage": "Your authentication code is {####}",
 					"smsVerificationMessage": "Your verification code is {####}",
 					"emailVerificationSubject": "Your verification code",
@@ -106,71 +106,79 @@
 					"passwordPolicyMinLength": 8,
 					"passwordPolicyCharacters": "Requires Lowercase,Requires Uppercase,Requires Numbers,Requires Symbols",
 					"requiredAttributes": "email",
-					"userpoolClientName": "cognito0288b343_app_client",
+					"userpoolClientName": "cognito7e15e0f8_app_client",
 					"userpoolClientGenerateSecret": true,
 					"userpoolClientRefreshTokenValidity": 30,
 					"userpoolClientReadAttributes": "email",
-					"mfaLambdaRole": "cognito0288b343_totp_lambda_role",
-					"mfaLambdaLogPolicy": "cognito0288b343_totp_lambda_log_policy",
-					"mfaPassRolePolicy": "cognito0288b343_totp_pass_role_policy",
-					"mfaLambdaIAMPolicy": "cognito0288b343_totp_lambda_iam_policy",
-					"userpoolClientLambdaRole": "cognito0288b343_userpoolclient_lambda_role",
-					"userpoolClientLogPolicy": "cognito0288b343_userpoolclient_lambda_log_policy",
-					"userpoolClientLambdaPolicy": "cognito0288b343_userpoolclient_lambda_iam_policy",
+					"mfaLambdaRole": "cognito7e15e0f8_totp_lambda_role",
+					"mfaLambdaLogPolicy": "cognito7e15e0f8_totp_lambda_log_policy",
+					"mfaPassRolePolicy": "cognito7e15e0f8_totp_pass_role_policy",
+					"mfaLambdaIAMPolicy": "cognito7e15e0f8_totp_lambda_iam_policy",
+					"userpoolClientLambdaRole": "cognito7e15e0f8_userpoolclient_lambda_role",
+					"userpoolClientLogPolicy": "cognito7e15e0f8_userpoolclient_lambda_log_policy",
+					"userpoolClientLambdaPolicy": "cognito7e15e0f8_userpoolclient_lambda_iam_policy",
 					"userpoolClientSetAttributes": false,
 					"useDefault": "default",
-					"unAuthRoleName": "martate-20181113160558-unauthRole",
-					"authRoleName": "martate-20181113160558-authRole",
-					"unAuthRoleArn": "arn:aws:iam::453037959938:role/martate-20181113160558-unauthRole",
-					"authRoleArn": "arn:aws:iam::453037959938:role/martate-20181113160558-authRole",
-					"resourceName": "cognito0288b343",
+					"unAuthRoleName": "martate-20181210172920-unauthRole",
+					"authRoleName": "martate-20181210172920-authRole",
+					"unAuthRoleArn": "arn:aws:iam::453037959938:role/martate-20181210172920-unauthRole",
+					"authRoleArn": "arn:aws:iam::453037959938:role/martate-20181210172920-authRole",
+					"resourceName": "cognito7e15e0f8",
 					"authSelections": "identityPoolAndUserPool"
 				}
 			}
 		},
-		"storagedynamo9f4d6d78": {
+		"storageShawnDB": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/storage/dynamo9f4d6d78-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/storage/ShawnDB-cloudformation-template.json",
 				"Parameters": {
-					"tableName": "Chores2",
-					"partitionKeyName": "userId",
-					"partitionKeyType": "S"
+					"tableName": "ShawnTable",
+					"partitionKeyName": "groupId",
+					"partitionKeyType": "N",
+					"sortKeyName": "userId",
+					"sortKeyType": "S"
 				}
 			}
 		},
-		"functionItemsLambda": {
+		"functionsmartmatec4d27624": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/function/ItemsLambda-cloudformation-template.json",
-				"Parameters": {}
-			}
-		},
-		"apiapia46a8997": {
-			"Type": "AWS::CloudFormation::Stack",
-			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/api/apia46a8997-cloudformation-template.json",
+				"TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/function/smartmatec4d27624-cloudformation-template.json",
 				"Parameters": {
-					"functionItemsLambdaName": {
+					"storageShawnDBName": {
 						"Fn::GetAtt": [
-							"functionItemsLambda",
+							"storageShawnDB",
 							"Outputs.Name"
 						]
 					},
-					"functionItemsLambdaArn": {
+					"storageShawnDBArn": {
 						"Fn::GetAtt": [
-							"functionItemsLambda",
+							"storageShawnDB",
 							"Outputs.Arn"
 						]
 					}
 				}
 			}
 		},
-		"hostingS3AndCloudFront": {
+		"apiapie2d281e1": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
-				"TemplateURL": "https://s3.amazonaws.com/martate-20181113160558-deployment/amplify-cfn-templates/hosting/template.json",
-				"Parameters": {}
+				"TemplateURL": "https://s3.amazonaws.com/martate-20181210172920-deployment/amplify-cfn-templates/api/apie2d281e1-cloudformation-template.json",
+				"Parameters": {
+					"functionsmartmatec4d27624Name": {
+						"Fn::GetAtt": [
+							"functionsmartmatec4d27624",
+							"Outputs.Name"
+						]
+					},
+					"functionsmartmatec4d27624Arn": {
+						"Fn::GetAtt": [
+							"functionsmartmatec4d27624",
+							"Outputs.Arn"
+						]
+					}
+				}
 			}
 		}
 	},
