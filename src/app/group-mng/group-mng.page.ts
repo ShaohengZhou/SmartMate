@@ -97,4 +97,13 @@ export class GroupMNGPage implements OnInit {
       return -1;
     }
   }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ngOnInit();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.target.complete();
+    }, 1000);
+  }
 }

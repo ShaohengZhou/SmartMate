@@ -8,6 +8,10 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
   <div *ngIf = "hasGroup">
       <div *ngIf = "groupItemList">
       <h3 text-center>Member List</h3>
