@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Contact
+      Payment
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,14 +10,27 @@
   <ion-list>
     <ion-list-header>
       <ion-label>
-        Follow us on Twitter
+        Choose a payment method:
       </ion-label>
     </ion-list-header>
     <ion-item>
       <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
+        <a href="https://www.paypal.com">
+        <img class="logopaypal" height="100 px" width="150 px" src="../../../assets/img/logopaypal.jpg">
+        </a>
       </ion-label>
     </ion-item>
+
+    <ion-item>
+        <!-- <div (click)="redirectVenmo()"> -->
+        <!-- <a href="https://www.venmo.com">
+        <img class="logovenmo" height="80 px" width="200 px" src="../../../assets/img/logovenmo.png">
+        </a> -->
+        <!-- </div>  -->
+        
+        <img class="logovenmo" height="80 px" width="200 px" src="../../../assets/img/logovenmo.png">
+        <!-- <button ion-button (click)="openVenmo()"></button>>  -->
+    </ion-item>
+
   </ion-list>
 </ion-content>

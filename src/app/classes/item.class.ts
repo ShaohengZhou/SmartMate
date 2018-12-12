@@ -30,7 +30,7 @@ export class ToDoItem {
    this.title = params.title;
    this.description = params.description;
    this.status = 'new';
-   this.date = params.date;
+   this.date = new Date().toISOString().substr(0,10);
    this.assignee = params.assignee;
  }
 }

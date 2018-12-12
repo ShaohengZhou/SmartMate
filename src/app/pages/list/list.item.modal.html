@@ -1,25 +1,45 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Edit Item</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list lines="true">
-      <ion-item>
-        <ion-label color="primary">Chore: </ion-label>
-        <ion-input placeholder="title" [(ngModel)]="item.title"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label color="primary">Assigned To:</ion-label>
-        <ion-input placeholder="description" [(ngModel)]="item.description"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label color="primary">Due By: </ion-label>
-        <ion-input placeholder="date" [(ngModel)]="item.date"></ion-input>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-  <ion-footer>
-    <ion-button class="save-btn" (click)="save()">Save</ion-button>
-    <ion-button class="dismiss-btn" (click)="cancel()">Cancel</ion-button>
-  </ion-footer>
+  <ion-toolbar>
+    <ion-title>Edit Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="true">
+    <ion-item>
+      <ion-label color="primary">Chore: </ion-label>
+      <ion-input placeholder="title" [(ngModel)]="item.title" style="text-align:right;"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" style="text-align:right;">Description:</ion-label>
+      <ion-input placeholder="description" [(ngModel)]="item.description" style="text-align:right;"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Due By: </ion-label>
+      <ion-datetime displayFormat="YYYY MM DD" pickerFormat="YYYY MM DD" min= "2018" max = "2020"  [(ngModel)]="item.date"></ion-datetime>
+      <!-- <ion-input placeholder="date" [(ngModel)]="item.date"></ion-input> -->
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Assigned to: </ion-label>
+      <ion-select [(ngModel)]="item.assignee">
+        <ion-select-option *ngFor="let assignee of itemList.assignees" value = "{{assignee}}">
+          {{assignee}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  
+  <div *ngIf = "item.title == null || item.description == null || item.assignee == null">
+    <ion-button class="save-btn"  (click)="showMissingAlert()" float-left>Save</ion-button>
+  </div>
+  <div *ngIf = "item.title != null && item.description != null && item.assignee != null">
+      <ion-button class="save-btn"  (click)="save()" float-left>Save</ion-button>
+  </div>
+  
+  <div><ion-button class="dismiss-btn" (click)="cancel()" float-right >Cancel</ion-button></div>
+  
+</ion-content>
+
+<!-- <ion-content margin-bottom>
+    <ion-button class="save-btn" (click)="save()" margin-bottom >Save</ion-button>
+    <ion-button class="dismiss-btn" (click)="cancel()" float-right margin-bottom>Cancel</ion-button>
+</ion-content> -->

@@ -1,25 +1,26 @@
 .hover {
-    cursor: pointer;
-    color:#009688
-  }
-  .complete {
-    color: rgb(31, 99, 31);
-  }
-  .card-title {
-    margin: 12px 0 0 12px !important;
-  }
-  
-  .font{
-  
-    font-family: 'Roboto' !important;
-  
-    
-  }
-  .welcome{
-    text-align:center;
-    color: blue;
-  }
-  
-  .toolbar-background {
-    background-color: rgb(250, 250, 250);
-  }
+  cursor: pointer;
+  color:#009688
+}
+.complete {
+  color: rgb(31, 99, 31);
+}
+.card-title {
+  margin: 12px 0 0 12px !important;
+}
+
+.font{
+  font-family: 'Roboto' !important;
+}
+.welcome{
+  text-align:center;
+  color: #009688;
+}
+.refresh{
+  font-size:25px;
+  color: #009688;
+}
+
+.toolbar-background {
+  background-color: rgb(250, 250, 250);
+}

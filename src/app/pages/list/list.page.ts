@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, Events } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from './list.item.modal';
-import {AmplifyService} from 'aws-amplify-angular'
-
+import { AmplifyService} from 'aws-amplify-angular'
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -25,8 +26,9 @@ export class ListPage implements OnInit {
   constructor(
     public modalController: ModalController,
     amplify: AmplifyService,
-    events: Events
-
+    events: Events,
+    private alertCtrl: AlertController,
+    private router : Router
   ) {
     this.amplifyService = amplify;
     // Listen for changes to the AuthState in order to change item list appropriately
@@ -39,6 +41,10 @@ export class ListPage implements OnInit {
         this.user = null;
       }
     })
+  }
+ 
+  donothing(){
+    this.router.navigateByUrl('/GroupMNG');
   }
 
   async ngOnInit(){
@@ -71,7 +77,6 @@ export class ListPage implements OnInit {
         // ...and add a new item if modal passes back newItem
         result.data.itemList.items.push(result.data.newItem)
       } else if (result.data.editItem){
-         console.log("hahaha");
         // ...or splice the items array if the modal passes back editItem
         result.data.itemList.items[i] = result.data.editItem;
       }
@@ -82,22 +87,48 @@ export class ListPage implements OnInit {
     return this.modal.present();
   }
 
-
-  delete(i){
-    this.groupItemList.items.splice(i, 1);
-    this.save(this.groupItemList);
+  async showConfirmAlert(i) {
+    console.log("check");
+    let alert = await this.alertCtrl.create({
+        header: 'Are you sure?',
+        message: 'Once a task is deleted, it cannot be recovered',
+        buttons: [
+            {
+                text: 'No',
+                role: 'cancel',
+                handler: () => {
+                    console.log('Cancel clicked');
+                }
+            },
+            {
+                text: 'Yes',
+                handler: () => {
+                   this.groupItemList.items.splice(i,1);
+                   this.save(this.groupItemList);
+                }
+            }
+        ]
+    })
+    alert.present()
   }
 
+
   complete(i){
-    this.groupItemList.items[i].status = "complete";
-    this.save(this.groupItemList);
+    if (this.itemList.items[i].status == "new") {
+      this.itemList.items[i].status = "complete";
+      this.save(this.itemList);
+    } else {
+      this.itemList.items[i].status = "new";
+      this.save(this.itemList);
+    }
+    
   }
 
   save(list){
     // Use AWS Amplify to save the list...
     this.amplifyService.api().post('apia46a8997', '/items', {body: list}).then((i) => {
       // ... and to get the list after you save it.
-      this.getGroupItems()
+      this.getItems()
     })
     .catch((err) => {
       console.log(`Error saving list: ${err}`)
@@ -143,5 +174,14 @@ export class ListPage implements OnInit {
       console.log('Cannot get items: no active user')
       return -1;
     }
+  }
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.ngOnInit();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.target.complete();
+    }, 1000);
   }
 }

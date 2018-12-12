@@ -2,17 +2,15 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, Events } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from '../list/list.item.modal';
-import {AmplifyService} from 'aws-amplify-angular'
+import { AmplifyService } from 'aws-amplify-angular';
+import { AlertController } from '@ionic/angular';
+
 @Component({
     selector: 'newHome-page',
     templateUrl: 'newHome.page.html',
     styleUrls: ['newHome.page.scss']
 
 })
-
-
-
-
 
 export class NewHomePage implements OnInit {
     amplifyService: AmplifyService;
@@ -21,11 +19,13 @@ export class NewHomePage implements OnInit {
     user: any;
     itemList: ToDoList|any;
     signedIn: boolean;
-  
+    groupItemList : ToDoList|any;
+
     constructor(
       public modalController: ModalController,
       amplify: AmplifyService,
-      events: Events
+      events: Events,
+      private alertCtrl: AlertController
   
     ) {
       this.amplifyService = amplify;
@@ -49,7 +49,7 @@ export class NewHomePage implements OnInit {
     async modify(item, i) {
       console.log("wawada");
       let props = {
-        itemList: this.itemList,
+        itemList: this.groupItemList,
         /*
           We pass in an item paramenter only when the user clicks on an existing item
           and therefore populate an editItem value so that our modal knows this is an edit operation.
@@ -81,16 +81,41 @@ export class NewHomePage implements OnInit {
   
       return this.modal.present();
     }
-  
-  
-    delete(i){
-      this.itemList.items.splice(i, 1);
-      this.save(this.itemList);
+
+    async showConfirmAlert(i) {
+      console.log("check");
+      let alert = await this.alertCtrl.create({
+          header: 'Are you sure?',
+          message: 'Once a task is deleted, it cannot be recovered',
+          buttons: [
+              {
+                  text: 'No',
+                  role: 'cancel',
+                  handler: () => {
+                      console.log('Cancel clicked');
+                  }
+              },
+              {
+                  text: 'Yes',
+                  handler: () => {
+                     this.groupItemList.items.splice(i,1);
+                     this.save(this.groupItemList);
+                  }
+              }
+          ]
+      })
+      alert.present()
     }
   
     complete(i){
-      this.itemList.items[i].status = "complete";
-      this.save(this.itemList);
+      if (this.itemList.items[i].status == "new") {
+        this.itemList.items[i].status = "complete";
+        this.save(this.itemList);
+      } else {
+        this.itemList.items[i].status = "new";
+        this.save(this.itemList);
+      }
+      
     }
   
     save(list){
@@ -110,8 +135,11 @@ export class NewHomePage implements OnInit {
         this.amplifyService.api().get('apia46a8997', `/items/${this.user.id}`, {}).then((res) => {
           if (res && res.length > 0){
             this.itemList = res[0];
+            this.getGroupItems();
+            console.log(res[0]);
           } else {
-            this.itemList = new ToDoList({userId: this.user.id, items: []});
+            //this.itemList = new ToDoList({userId: this.user.id, items: [], groupId: "1234"});
+            console.log("user does not have item in DB");
           }
         })
         .catch((err) => {
@@ -122,5 +150,33 @@ export class NewHomePage implements OnInit {
       }
     }
   
-  }
+    getGroupItems(){
+      if (this.user){
+        // Use AWS Amplify to get the list
+        this.amplifyService.api().get('apia46a8997', `/items/${this.itemList.owner}`, {}).then((res) => {
+          if (res && res.length > 0){
+            this.groupItemList = res[0];
+          } else {
+            //this.itemList = new ToDoList({userId: this.user.id, items: [], groupId: "1234"});
+            console.log("user does not have item in DB");
+            return 0;
+          }
+        }).catch((err) => {
+          console.log(`Error getting list: ${err}`)
+        })
+      } else {
+        console.log('Cannot get items: no active user')
+        return -1;
+      }
+    }
+
+    doRefresh(refresher) {
+      console.log('Begin async operation', refresher);
+      this.ngOnInit();
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        refresher.target.complete();
+      }, 1000);
+    }
   
+  }
