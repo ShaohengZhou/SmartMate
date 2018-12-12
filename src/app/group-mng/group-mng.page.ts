@@ -4,6 +4,7 @@ import { ToDoItem, ToDoList } from '../classes/item.class';
 import { ListItemModal } from '../pages/list/list.item.modal';
 import {AmplifyService} from 'aws-amplify-angular'
 
+
 @Component({
   selector: 'app-group-mng',
   templateUrl: './group-mng.page.html',
@@ -41,14 +42,7 @@ export class GroupMNGPage implements OnInit {
      this.getItems();
   }
 
-  // removeUser(item){
-  //   for(let i = 0; i < this.users.length; i++) {
-  //     if(this.users[i] == item){
-  //       this.users.splice(i, 1);
-  //     }
-  //   }
-  //   console.log(this.users.length);
-  // }
+ 
 
   getItems(){
     if (this.user){
