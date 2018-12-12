@@ -115,12 +115,12 @@ export class ListPage implements OnInit {
 
 
   complete(i){
-    if (this.itemList.items[i].status == "new") {
-      this.itemList.items[i].status = "complete";
-      this.save(this.itemList);
+    if (this.groupItemList.items[i].status == "new") {
+      this.groupItemList.items[i].status = "complete";
+      this.save(this.groupItemList);
     } else {
-      this.itemList.items[i].status = "new";
-      this.save(this.itemList);
+      this.groupItemList.items[i].status = "new";
+      this.save(this.groupItemList);
     }
     
   }

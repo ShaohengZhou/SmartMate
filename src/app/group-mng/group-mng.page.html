@@ -9,24 +9,20 @@
 
 <ion-content padding>
   <div *ngIf = "hasGroup">
-      <h3>Swipe a user to delete</h3>
+      <div *ngIf = "groupItemList">
+      <h3 text-center>Member List</h3>
       <ion-list>
-            <ion-item-sliding *ngFor= "let user of users">
+            <ion-item-sliding *ngFor= "let assignee of groupItemList.assignees">
               <ion-item> 
-              {{user.title}}
+              {{assignee}}
               </ion-item>
-              <ion-item-options>
-                <button (click)="removeUser(user)"> Delete</button>
-              </ion-item-options>
             </ion-item-sliding>
         </ion-list>
+      </div>
      
      <div text-center>
         <ion-button size = "large" href="/inviteMember">
           Add a group member
-        </ion-button>
-        <ion-button size = "large">
-            Delete group
         </ion-button>
       </div>
   </div>
