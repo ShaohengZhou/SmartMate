@@ -1,8 +1,9 @@
     <ion-header no-border>
       <ion-toolbar no-border-top color="--ion-color-success-contrast">
               <ion-icon class = icon name="menu" (click) = "donothing()"></ion-icon>
-              <ion-icon class = icon name="ios-add" (click)="modify(null,null)" float-right></ion-icon>
-
+              <div *ngIf = "groupItemList">
+                <ion-icon class = icon name="ios-add" (click)="modify(null,null)" float-right></ion-icon>
+              </div>
             <ion-title *ngIf="user" class="welcome">Welcome {{user.username}}</ion-title>
       </ion-toolbar>
     </ion-header>
