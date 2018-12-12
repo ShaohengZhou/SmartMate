@@ -1,19 +1,18 @@
     <ion-header no-border>
       <ion-toolbar no-border-top color="--ion-color-success-contrast">
               <ion-icon class = icon name="menu" (click) = "donothing()"></ion-icon>
-              <div *ngIf = "groupItemList">
-                <ion-icon class = icon name="ios-add" (click)="modify(null,null)" float-right></ion-icon>
-              </div>
+              <ion-icon class = icon name="ios-add" (click)="modify(null,null)" float-right></ion-icon>
+
             <ion-title *ngIf="user" class="welcome">Welcome {{user.username}}</ion-title>
       </ion-toolbar>
     </ion-header>
     
     
-    <ion-content padding *ngIf="groupItemList">
+<ion-content padding >
         <ion-refresher (ionRefresh)="doRefresh($event)">
                     <ion-refresher-content></ion-refresher-content>
          </ion-refresher>
-             
+    <div *ngIf="groupItemList">
          <div *ngIf="groupItemList.items && groupItemList.items.length > 0; else upChores" >
             Upcoming Chores:
          </div>  
@@ -22,18 +21,19 @@
             No chores, Press the + to add
           </ng-template>
 
-    <ion-card *ngFor="let item of groupItemList.items; index as i">
-      <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
-      <ion-card-content>{{item.description}}</ion-card-content>
-      <ion-card-content>Due {{item.date}} --------- {{item.assignee}}</ion-card-content>
-      <!-- <ion-card-subtitle> -->
-          <ion-buttons slot="end">
-              <ion-button (click)="showConfirmAlert(i)" class="hover">
-                  <ion-icon name="trash" size="small"></ion-icon>Delete</ion-button>
-              <ion-button (click)="complete(i)" class="hover">
-                  <ion-icon name="checkmark-circle" size="small" [ngClass]="{'complete': item.status=='complete'}"></ion-icon>Mark Complete
-              </ion-button>
-            </ion-buttons>
-      <!-- </ion-card-subtitle> -->
-    </ion-card>
+        <ion-card *ngFor="let item of groupItemList.items; index as i">
+        <ion-card-title class="hover card-title" (click)="modify(item, i)">{{item.title}}</ion-card-title>
+        <ion-card-content>{{item.description}}</ion-card-content>
+        <ion-card-content>Due {{item.date}} --------- {{item.assignee}}</ion-card-content>
+        <!-- <ion-card-subtitle> -->
+            <ion-buttons slot="end">
+                <ion-button (click)="showConfirmAlert(i)" class="hover">
+                    <ion-icon name="trash" size="small"></ion-icon>Delete</ion-button>
+                <ion-button (click)="complete(i)" class="hover">
+                    <ion-icon name="checkmark-circle" size="small" [ngClass]="{'complete': item.status=='complete'}"></ion-icon>Mark Complete
+                </ion-button>
+                </ion-buttons>
+        <!-- </ion-card-subtitle> -->
+        </ion-card>
+    </div>
 </ion-content>

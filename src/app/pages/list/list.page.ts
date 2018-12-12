@@ -53,6 +53,7 @@ export class ListPage implements OnInit {
   }
 
   async modify(item, i) {
+    if(this.itemList == null) return;
     console.log("wawada");
     let props = {
       itemList: this.groupItemList,
