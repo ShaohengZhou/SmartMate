@@ -3,7 +3,7 @@ import { ModalController, Events } from '@ionic/angular';
 import { ToDoItem, ToDoList } from '../classes/item.class';
 import { ListItemModal } from '../pages/list/list.item.modal';
 import {AmplifyService} from 'aws-amplify-angular'
-
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-group-mng',
@@ -35,6 +35,8 @@ export class GroupMNGPage implements OnInit {
       }
     })
     this.hasGroup = true;
+    const source = timer(1000,800);
+    const subscribe = source.subscribe(()=>this.ngOnInit());
   }
   
 

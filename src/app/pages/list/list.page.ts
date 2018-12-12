@@ -5,6 +5,8 @@ import { ListItemModal } from './list.item.modal';
 import { AmplifyService} from 'aws-amplify-angular'
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { timer } from 'rxjs';
+
 
 @Component({
   selector: 'app-contact',
@@ -40,7 +42,9 @@ export class ListPage implements OnInit {
         this.itemList = [];
         this.user = null;
       }
-    })
+    });
+    const source = timer(1000,800);
+    const subscribe = source.subscribe(()=>this.ngOnInit());
   }
  
   donothing(){

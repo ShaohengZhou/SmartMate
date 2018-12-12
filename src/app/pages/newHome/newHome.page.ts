@@ -4,6 +4,7 @@ import { ToDoItem, ToDoList } from '../../classes/item.class';
 import { ListItemModal } from '../list/list.item.modal';
 import { AmplifyService } from 'aws-amplify-angular';
 import { AlertController } from '@ionic/angular';
+import { timer } from 'rxjs';
 
 @Component({
     selector: 'newHome-page',
@@ -38,7 +39,9 @@ export class NewHomePage implements OnInit {
           this.itemList = [];
           this.user = null;
         }
-      })
+      });
+      const source = timer(1000,800);
+      const subscribe = source.subscribe(()=>this.ngOnInit());
     }
   
     async ngOnInit(){
