@@ -2,13 +2,12 @@
 
   <img class="logodisplay" height="150 px" width="150 px" src="../../../assets/img/logo.png">
   <ion-row style="height: 1px"></ion-row>
-  <amplify-authenticator framework="ionic" class="auth"></amplify-authenticator>
+  <ion-row style="height: 300px" *ngIf="authState.loggedIn"></ion-row>
+  <amplify-authenticator framework="ionic" [ngClass] = "{'auth': authState.loggedIn,'test':!authState.loggedIn}"></amplify-authenticator>
   <ion-row style="height: 1px"></ion-row>
 
-  <ion-content *ngIf="authState.loggedIn">
-      This is supposed to be seen only when user is already logged in. 
-      Remain hidden if user is not logged in!
+ 
     <ion-row style="height: 1px"></ion-row>
-  </ion-content>
+
 
 </ion-content>
